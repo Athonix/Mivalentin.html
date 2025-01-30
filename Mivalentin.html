@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serás mi Valentín? ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url('https://i.ibb.co/YFMsmWMR/656c7dc1-6e10-4b8d-b966-18c105adb09b.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            width: 50%;
+        }
+        h1 {
+            color: #ff4d4d;
+        }
+        p {
+            font-size: 18px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .yes:hover {
+            background-color: #ff1a1a;
+        }
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: relative;
+        }
+        .no:hover {
+            background-color: #999;
+        }
+        .hidden {
+            display: none;
+        }
+        .song {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="card">
+        <h1>¿Serás mi Valentín? ❤️</h1>
+        <p>No hay nadie más especial que tú, y me haría muy feliz compartir este día contigo.</p>
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Sí, obvio!</button>
+            <button class="no" id="noButton" onclick="makeNoBigger()">No...</button>
+        </div>
+        <div class="hidden" id="message">
+            <h2>¡Sabía que dirías que sí! ❤️</h2>
+            <p>Eres lo más hermoso que tengo, gracias por hacerme tan feliz. 💖</p>
+            <div class="song">
+                <p>Te dedico esta canción:</p>
+                <a href="https://www.youtube.com/watch?v=13-9bX2Bptg" target="_blank">🎶 Cosa de Dos - José José</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let noButton = document.getElementById("noButton");
+        let messages = ["¿Segura segura? 🥺", "¿No lo piensas mejor? 😢", "¡Por favor di que sí! 😭", "No acepto un no 😠", "Ya no hay botón de 'No' 😏"];
+        let messageIndex = 0;
+        let noButtonSize = 18;
+
+        function makeNoBigger() {
+            if (messageIndex < messages.length) {
+                noButton.innerText = messages[messageIndex];
+                messageIndex++;
+                noButtonSize += 10;
+                noButton.style.fontSize = noButtonSize + "px";
+            } else {
+                noButton.style.display = "none";
+            }
+        }
+
+        function sayYes() {
+            document.getElementById("card").innerHTML = document.getElementById("message").innerHTML;
+        }
+    </script>
+
+</body>
+</html>
+
+
